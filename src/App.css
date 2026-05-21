@@ -1,0 +1,8 @@
+body {
+  font: 1em sans-serif;
+  color: black;
+  background-color: #F3F5FA;
+  box-sizing: border-box;
+  display: flex;
+  margin: 0;
+}
