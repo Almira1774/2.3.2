@@ -1,4 +1,4 @@
-import { ButtonDemo } from '../../shared/Button'
+import { ButtonDemo } from '../../shared/ButtonDemo'
 import styles from './H1.module.scss'
 
 type H1Props = {

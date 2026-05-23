@@ -1,6 +1,6 @@
 import styles from './Header.module.scss'
 import { H1 } from './H1/H1'
-import { ButtonDemo } from '../shared/Button'
+import { ButtonDemo } from '../shared/ButtonDemo'
 import ButtonCart from '../shared/ButtonCart'
 
  function Header() {

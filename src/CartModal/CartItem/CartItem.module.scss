@@ -1,0 +1,18 @@
+.cartItem{
+    display: flex;
+    background-color: aquamarine;
+}
+
+.cartItem-info{
+    display: flex;
+    width: 320px;
+    height: 28px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cartItem-info--stepper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

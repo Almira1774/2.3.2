@@ -16,7 +16,7 @@ function ButtonCart({ imageSrc, imageAlt,children,bg }: CardProps) {
         <Button
             variant="filled" w={144} h={44}
             ml="auto"
-            color={bg} radius="md"
+            color={bg} radius="xs"
             rightSection={<img src={imageSrc} alt={imageAlt} 
             style={{ width: "20px", height: "20px" }}/>}
     

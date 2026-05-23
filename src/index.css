@@ -6,3 +6,20 @@
 *, *::before, *::after {
   box-sizing: inherit;
 }
+
+body {
+  font: 1em sans-serif;
+  color: black;
+  background-color: #F3F5FA;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+
+:root {
+  width: 100%;
+  display: grid;
+  min-height: 100vh; /* растянет приложение на всю высоту экрана */
+}
