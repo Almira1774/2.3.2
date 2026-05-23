@@ -4,19 +4,15 @@ import { BadgeDemo } from '../../shared/BadgeDemo';
 import { ButtonDemo } from '../../shared/ButtonDemo';
 import { StepperDemo } from '../../shared/StepperDemo';
 
-type Product={
+export type Product={
   id: number;
   name: string;
   price: number;
   image: string;
-  category: string;
 }
 
-type Item = {
-  item:Product
-}
-function CardItem({item}:Item) {
-  const{name,price,image,category}= item
+function CardItem({id,name,price,image}:Product) {
+  
   return (
     // Убрали все ограничения, карточка теперь идеально слушается сетку Grid
     <Card shadow="sm" padding="lg" withBorder w="100%" >
