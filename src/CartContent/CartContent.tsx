@@ -36,7 +36,7 @@ function CartContent() {
                         <CardItem id={product.id}
                         image={product.image}
                         name = {product.name}
-                        price={product.price}></CardItem>
+                        price={`$+ ${product.price}`}></CardItem>
                     </Grid.Col>
 
                 )

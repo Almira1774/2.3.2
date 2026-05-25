@@ -1,12 +1,13 @@
 import { Badge } from '@mantine/core';
 
 type BadgeProps={
-  bg:string
+  bg:string;
+  children: React.ReactNode
 }
-function BadgeDemo({bg}:BadgeProps) {
+function BadgeDemo({bg,children}:BadgeProps) {
   return <Badge color={bg}
-  size="lg" circle
-  >Badge</Badge>;
+  size="lg" circle c={'#212529'}
+  >{children}</Badge>;
 }
 
 

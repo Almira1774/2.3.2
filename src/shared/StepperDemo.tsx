@@ -1,16 +1,19 @@
 import { Button } from "@mantine/core";
 import { BadgeDemo } from "./BadgeDemo";
-import { ButtonDemo } from "./ButtonDemo";
 
+export type StepperProps={
+    onIncrement:()=>void;
+    onDecrement:()=>void;
+    quantity: number;
 
-function StepperDemo(){
-
+}
+function StepperDemo({onDecrement,onIncrement,quantity}:StepperProps){
 
     return(
         <>
-            <Button w={30} h={30} p={0} bg={"#DEE2E6"} > -</Button>
-            <BadgeDemo></BadgeDemo>
-            <Button w = {30} h={30} p={0} bg={"#DEE2E6"}> + </Button>
+            <Button w={30} h={30} p={0} bg={"#DEE2E6"} onClick={onDecrement} > -</Button>
+            <BadgeDemo bg="#FFFFFF">{quantity}</BadgeDemo>
+            <Button w = {30} h={30} p={0} bg={"#DEE2E6"} onClick={onIncrement}> + </Button>
         </>
     )
 

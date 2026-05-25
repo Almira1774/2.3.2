@@ -7,7 +7,7 @@ import { StepperDemo } from '../../shared/StepperDemo';
 export type Product={
   id: number;
   name: string;
-  price: number;
+  price: string;
   image: string;
 }
 
