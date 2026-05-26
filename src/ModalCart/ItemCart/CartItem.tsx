@@ -1,7 +1,10 @@
 import { Group, Stack, Image, Text } from '@mantine/core';
 import { StepperDemo } from '../../shared/StepperDemo';
+import type { CartItemProps } from '../../Catalog/CatalogCard/CatalogCard';
+import type { CartItemType } from '../../CartContext';
 
-function CartItem() {
+function CartItem(item:CartItemType) {
+  const{id,name,price,image,quantity}=item
   return (
     // Внешний контейнер .cartItem (горизонтальный ряд для картинки и информации)
     <Group 
@@ -12,7 +15,7 @@ function CartItem() {
     >
       {/* Картинка из Mantine (встроенные width и height) */}
       <Image
-        src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
+        src={image}
         alt="cart item"
         w={64}
         h={64}
@@ -26,12 +29,15 @@ function CartItem() {
         justify="space-between" // вертикальное распределение (Name вверху, цена внизу)
         gap={0}
       >
-        <Text size="sm" fw={500}>Name</Text>
+        <Text size="sm" fw={500}>{name}</Text>
 
         {/* Контейнер .cartItem-info--stepper (горизонтальный ряд для Price и StepperDemo) */}
         <Group justify="space-between" w="100%" wrap="nowrap">
-          <Text size="sm" c="dimmed">Price</Text>
-          <StepperDemo />
+          <Text size="sm" c="dimmed">{`$ ${price}`}</Text>
+          <StepperDemo 
+          onDecrement={()=>{}}
+          onIncrement={()=>{}}
+          quantity={quantity}/>
         </Group>
       </Stack>
     </Group>

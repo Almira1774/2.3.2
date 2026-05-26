@@ -1,5 +1,6 @@
 
 import { createContext, useContext, useState } from "react";
+import type { Product } from "./Catalog/CatalogCard/CatalogCard";
 export type CartItemType = {
     id: number;
     image: string;
@@ -9,19 +10,19 @@ export type CartItemType = {
 
 }
 
-export type CartContextType = {
-    cartItems: CartItemType[];
-    addToCart: (item: CartItemType) => void
+export type CartContextType={
+cartItems:CartItemType[];
+addToCart:(item:Product)=>void
 }
-export const CartContext = createContext<CartContextType | undefined>(undefined);
+export const CartContext = createContext<CartContextType|undefined>(undefined);
 
-export const useCart = () => {
-    const context = useContext(CartContext);
-    if (!context) {
-        throw new Error('Контекст должен быть внутри Провайдера');
+export const useCart=()=>{
+const context = useContext(CartContext);
+if(!context){
+    throw new Error('Контекст должен быть внутри Провайдера');
 
-    }
-    else {
-        return context;
-    }
-};
+}
+else{
+    return context;
+}
+}

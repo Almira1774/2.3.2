@@ -6,11 +6,12 @@ export type CardProps = {
     imageSrc: string; 
     imageAlt: string;
     children: string;
-    bg:string
+    bg:string;
+    onClick:()=>void
 
 }
 
-function ButtonCart({ imageSrc, imageAlt,children,bg }: CardProps) {
+function ButtonCart({ imageSrc, imageAlt,children,bg,onClick }: CardProps) {
     return (
 
         <Button
@@ -19,6 +20,7 @@ function ButtonCart({ imageSrc, imageAlt,children,bg }: CardProps) {
             color={bg} radius="xs"
             rightSection={<img src={imageSrc} alt={imageAlt} 
             style={{ width: "20px", height: "20px" }}/>}
+            onClick={onClick}
     
             >{children}</Button>
 

@@ -1,10 +1,11 @@
+import type { Product } from "./Catalog/CatalogCard/CatalogCard";
 import {CartContext, type CartItemType } from "./CartContext";
 import {useState} from 'react';
 const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
 
 const[cartItems, setCartItems]=useState<CartItemType[]>([])
 
-const addToCart = (newItem:CartItemType)=>{
+const addToCart = (newItem:Product)=>{
 const isItem = cartItems.find(item=>{
     return item.id===newItem.id
 })
@@ -16,11 +17,12 @@ if(isItem){
         return item     
     })
     setCartItems(newQuantity)
+    console.log("Добавлен")
 }
 else{
     const newQuantity = {...newItem, quantity:1}
     setCartItems([...cartItems,newQuantity])
-    
+    console.log("Создан")
 }
 }
     return (

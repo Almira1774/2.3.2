@@ -1,8 +1,8 @@
 import { Grid } from '@mantine/core';
-import { CardItem } from './CartItem/CardItem';
+import { CatalogCard, type CartItemProps } from './CatalogCard/CatalogCard';
 import ky from 'ky';
 import { useEffect, useState } from 'react';
-import { type Product } from './CartItem/CardItem'
+import { type Product } from './CatalogCard/CatalogCard'
 
 function CartContent() {
     const [products, setProducts] = useState<Product[]>([])
@@ -16,10 +16,15 @@ function CartContent() {
             if (data) {
                 setProducts(data)
             }
+
         }
         fetchData();
 
     }, [])
+
+    if (products.length === 0) {
+        return <h3 style={{ textAlign: 'center', marginTop: 150 }}>Подгружаем товары...</h3>;
+    }
 
     return (
         <Grid gap="md"
@@ -33,10 +38,7 @@ function CartContent() {
             {products.map((product) => {
                 return (
                     <Grid.Col span={3} key={product.id}>
-                        <CardItem id={product.id}
-                        image={product.image}
-                        name = {product.name}
-                        price={`$+ ${product.price}`}></CardItem>
+                        <CatalogCard item={product}></CatalogCard>
                     </Grid.Col>
 
                 )

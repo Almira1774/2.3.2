@@ -8,8 +8,8 @@ import { Header } from './Header/Header'
 import '@mantine/core/styles.css';
 
 import { MantineProvider } from '@mantine/core';
-import { CartContent } from './CartContent/CartContent';
-import { CartModal } from './CartModal/CartModal';
+import { CartContent } from './Catalog/CartContent';
+import {ModalCart } from './ModalCart/ModalCart';
 import CartContextProvider from './CartContextProvider';
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
         <main >
           <CartContent></CartContent>
         </main>
-        <CartModal></CartModal>
+        <ModalCart></ModalCart>
       </CartContextProvider>
     </>
   }</MantineProvider>;
