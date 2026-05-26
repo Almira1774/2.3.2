@@ -2,6 +2,7 @@ import { Card, Image, Text, Group } from '@mantine/core';
 import ButtonCart from '../../shared/ButtonCart';
 import { StepperDemo } from '../../shared/StepperDemo';
 import { useCart } from '../../CartContext';
+import { useState } from 'react';
 
 export type Product = {
   id: number;
@@ -15,13 +16,14 @@ export type CartItemProps = {
 }
 
 function CatalogCard
-({ item }: CartItemProps) {
-   if (!item) {
+  ({ item }: CartItemProps) {
+  if (!item) {
     console.log("item не передали")
-    return null; 
+    return null;
   }
   const { id, name, price, image } = item
   const { addToCart, cartItems } = useCart()
+  const [count, setCount] = useState(0)
 
 
   const isQuantity = cartItems.find(cart => cart.id === item.id)
@@ -50,9 +52,16 @@ function CatalogCard
         </Text>
         {/* Убрали ml={100}, теперь блок аккуратно встанет справа */}
         <Group gap={0}>
-          <StepperDemo onDecrement={()=>{}}
-            onIncrement={()=>{} }
-            quantity={quantityValue} />
+          <StepperDemo onDecrement={() => {
+            console.log("Кликнули минус, текущий count:", count)
+            setCount(count - 1)
+          }}
+
+            onIncrement={() => {
+              console.log("Кликнули минус, текущий count:", count)
+              setCount(count + 1)
+            }}
+            quantity={count} />
         </Group>
       </Group>
 

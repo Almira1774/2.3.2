@@ -1,5 +1,6 @@
 import { Button } from "@mantine/core";
 import { BadgeDemo } from "./BadgeDemo";
+import { useState } from "react";
 
 export type StepperProps={
     onIncrement:()=>void;
@@ -8,6 +9,7 @@ export type StepperProps={
 
 }
 function StepperDemo({onDecrement,onIncrement,quantity}:StepperProps){
+    
 
     return(
         <>
