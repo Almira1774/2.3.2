@@ -12,7 +12,7 @@ export type CartItemType = {
 
 export type CartContextType={
 cartItems:CartItemType[];
-addToCart:(item:Product)=>void
+addToCart:(item:Product,count:number)=>void
 }
 export const CartContext = createContext<CartContextType|undefined>(undefined);
 

@@ -9,6 +9,7 @@ export type Product = {
   name: string;
   price: number;
   image: string;
+
 }
 
 export type CartItemProps = {
@@ -23,7 +24,7 @@ function CatalogCard
   }
   const { id, name, price, image } = item
   const { addToCart, cartItems } = useCart()
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
 
 
   const isQuantity = cartItems.find(cart => cart.id === item.id)
@@ -53,22 +54,24 @@ function CatalogCard
         {/* Убрали ml={100}, теперь блок аккуратно встанет справа */}
         <Group gap={0}>
           <StepperDemo onDecrement={() => {
-            console.log("Кликнули минус, текущий count:", count)
-            setCount(count - 1)
+            if (count > 1) {
+              console.log("Кликнули минус, текущий count:", count)
+              setCount(count - 1)
+            }
           }}
 
             onIncrement={() => {
               console.log("Кликнули минус, текущий count:", count)
               setCount(count + 1)
             }}
-            quantity={count} />
+           quantity={count} />
         </Group>
       </Group>
 
       {/* Для нижней строки тоже полезно сделать space-between, чтобы кнопка и цена разъехались по краям */}
       <Group justify="space-between">
         <p>{`$ + ${price}`}</p>
-        <ButtonCart onClick={() => addToCart(item)}
+        <ButtonCart onClick={() => addToCart(item,count)}
           bg='#D6F0DC'
           imageAlt='add to cart'
           imageSrc='/cartGreen.svg'

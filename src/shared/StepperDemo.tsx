@@ -13,9 +13,9 @@ function StepperDemo({onDecrement,onIncrement,quantity}:StepperProps){
 
     return(
         <>
-            <Button w={30} h={30} p={0} bg={"#DEE2E6"} onClick={onDecrement} > -</Button>
-            <BadgeDemo bg="#FFFFFF">{quantity}</BadgeDemo>
-            <Button w = {30} h={30} p={0} bg={"#DEE2E6"} onClick={onIncrement}> + </Button>
+            <Button c={"#212529"} w={30} h={30} p={0} bg={"#DEE2E6"} onClick={onDecrement} > -</Button>
+            <BadgeDemo  bg="#FFFFFF" >{quantity}</BadgeDemo>
+            <Button c={"#212529"} w = {30} h={30} p={0} bg={"#DEE2E6"} onClick={onIncrement}> + </Button>
         </>
     )
 

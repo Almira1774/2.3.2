@@ -5,8 +5,8 @@ type BadgeProps={
   children: React.ReactNode
 }
 function BadgeDemo({bg,children}:BadgeProps) {
-  return <Badge color={bg}
-  size="lg" circle c={'#212529'}
+  return <Badge bg={bg}
+  size="lg" circle  c="dark"
   >{children}</Badge>;
 }
 
