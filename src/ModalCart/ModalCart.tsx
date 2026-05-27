@@ -33,19 +33,23 @@ function ModalCart() {
                             image={product.image}
                             quantity={product.quantity}
                             price={product.price}
-                        
+
                         ></CartItem>
                     </Box>
-    )
-})}
+                )
+            })}
 
 
 
 
-<Group justify="space-between" w="100%" px="md" mt="auto">
-    <Text fw={700}>Total:</Text>
-    <Text fw={700}>$100.00</Text> {/* Сюда потом подставите общую сумму */}
-</Group>
+            <Group justify="space-between" w="100%" px="md" mt="auto">
+                <Text fw={700}>Total:</Text>
+                <Text fw={700}>{cartItems.reduce((total, item) =>
+                    total + item.quantity * item.price, 0
+
+                )}
+                </Text> {/* Сюда потом подставите общую сумму */}
+            </Group>
         </Stack >
     );
 }
