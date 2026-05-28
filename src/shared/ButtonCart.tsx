@@ -5,7 +5,7 @@ export type CardProps = {
 
     imageSrc: string; 
     imageAlt: string;
-    children: string;
+    children: React.ReactNode;
     bg:string;
     onClick:()=>void
 

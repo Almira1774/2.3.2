@@ -10,9 +10,15 @@ export type CartItemType = {
 
 }
 
+
 export type CartContextType={
 cartItems:CartItemType[];
+isEmpty:boolean
+cartIsClicked:boolean
 addToCart:(item:Product,count:number)=>void
+onIncrement:(id:number)=>void
+onDecrement:(id:number)=>void
+toggleShowModal:()=>void
 }
 export const CartContext = createContext<CartContextType|undefined>(undefined);
 

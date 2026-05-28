@@ -6,52 +6,54 @@ import { useCart } from '../CartContext';
 
 
 function ModalCart() {
-    const { cartItems } = useCart();
+    const { cartItems, isEmpty } = useCart();
     return (
-        // Заменяем внешний .cartModal
-        <Stack
-            w={444}
-            mih={100} // Из вашего CSS взяли последнее значение height: 100px
-            bg="aqua"
-            pos="sticky" // position: relative
-            left={600}     // left: 600px
-            style={{ zIndex: 200 }} // z-index передаем через инлайн-стиль
-            gap={0}
-        // сбрасываем стандартные отступы Stack между элементами
-        >
+        !isEmpty ?
+            <Stack 
+                w={444}
+                mih={100} // Из вашего CSS взяли последнее значение height: 100px
+                bg="aqua"
+                pos="sticky"
+                left={600}
+                style={{ zIndex: 200 }}
+                gap={0}
+            // сбрасываем стандартные отступы Stack между элементами
+            >
+                {cartItems.map((product) => {
+                    return (
+                        <Box key={product.id}
+                            w={396}
+                            flex={1} // Чтобы внутренний блок растягивался по высоте родителя, если нужно
+                        >
+                            <CartItem item={product}></CartItem>
+                        </Box>
+                    )
+                })}
 
+                <Group justify="space-between" w="100%" px="md" mt="auto">
+                    <Text fw={700}>Total:</Text>
+                    <Text fw={700}>{cartItems.reduce((total, item) =>
+                        total + item.quantity * item.price, 0
 
-            {cartItems.map((product) => {
-                return (
-                    <Box key={product.id}
-                        w={396}
-                        bg="rgb(57, 71, 71)"
-                        flex={1} // Чтобы внутренний блок растягивался по высоте родителя, если нужно
-                    >
-                        <CartItem id={product.id}
-                            name={product.name}
-                            image={product.image}
-                            quantity={product.quantity}
-                            price={product.price}
+                    )}
+                    </Text>
+                </Group>
+            </Stack >
+            :
+            <Stack    w={301}
+               h={227} // Из вашего CSS взяли последнее значение height: 100px
+                
+                pos="sticky"
+                left={600}
+                style={{ zIndex: 200 }}
+                gap={0}>
+                
+                <img src='/cart_empty.svg' width={118} height={107}></img>
+                <Text>Cart is Empty</Text>
+            </Stack>
 
-                        ></CartItem>
-                    </Box>
-                )
-            })}
-
-
-
-
-            <Group justify="space-between" w="100%" px="md" mt="auto">
-                <Text fw={700}>Total:</Text>
-                <Text fw={700}>{cartItems.reduce((total, item) =>
-                    total + item.quantity * item.price, 0
-
-                )}
-                </Text> {/* Сюда потом подставите общую сумму */}
-            </Group>
-        </Stack >
     );
+
 }
 
 export { ModalCart };

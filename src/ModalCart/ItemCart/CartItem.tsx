@@ -1,10 +1,17 @@
 import { Group, Stack, Image, Text } from '@mantine/core';
 import { StepperDemo } from '../../shared/StepperDemo';
 import type { CartItemProps } from '../../Catalog/CatalogCard/CatalogCard';
-import type { CartItemType } from '../../CartContext';
+import  {  type CartItemType, useCart } from '../../CartContext';
 
-function CartItem(item:CartItemType) {
+function CartItem({item}:{item:CartItemType}) {
+
   const{id,name,price,image,quantity}=item
+  const {onDecrement,onIncrement}=useCart()
+   if (!item) {
+    console.log("В CartItem забыли передать item");
+    return null;
+  }
+  
   return (
     // Внешний контейнер .cartItem (горизонтальный ряд для картинки и информации)
     <Group 
@@ -35,8 +42,8 @@ function CartItem(item:CartItemType) {
         <Group justify="space-between" w="100%" wrap="nowrap">
           <Text size="sm" c="dimmed">{`$ ${price}`}</Text>
           <StepperDemo 
-          onDecrement={()=>{}}
-          onIncrement={()=>{}}
+          onDecrement={()=>onDecrement(id)}
+          onIncrement={()=>onIncrement(id)}
           quantity={quantity}/>
         </Group>
       </Stack>
@@ -45,3 +52,4 @@ function CartItem(item:CartItemType) {
 }
 
 export { CartItem };
+
