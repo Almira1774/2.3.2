@@ -1,10 +1,21 @@
 import type { Product } from "./Catalog/CatalogCard/CatalogCard";
 import { CartContext, type CartItemType } from "./CartContext";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     const [cartItems, setCartItems] = useState<CartItemType[]>([])
     const [cartIsClicked, setCartIsClicked] = useState(false)
+const storedCartItems = JSON.parse(localStorage.getItem('cartItems') || '[]')
+    useEffect(() => {
+        
+        if (storedCartItems) {
+            setCartItems(storedCartItems)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems))
+    }, [cartItems])
 
     const addToCart = (newItem: Product, count: number) => {
         const isItem = cartItems.find(item => {
