@@ -25,6 +25,7 @@ function CatalogCard
   const { id, name, price, image } = item
   const { addToCart, cartItems } = useCart()
   const [count, setCount] = useState(1)
+  const [firstPart, secondPart] = name.split(" - ") // Разделяем имя на две части для переноса
 
 
   const isQuantity = cartItems.find(cart => cart.id === item.id)
@@ -33,11 +34,12 @@ function CatalogCard
 
   return (
     // Убрали все ограничения, карточка теперь идеально слушается сетку Grid
-    <Card shadow="sm" padding="lg" withBorder w="100%" >
-      <Card.Section component="a" href="https://mantine.dev/">
+    <Card shadow="sm" withBorder h={'100%'}
+      p={'md'}>
+      <Card.Section component="a" href="https://mantine.dev/" >
         <Image
           src={image}
-          height={276}
+          height={276} // Фиксированная высота для всех изображений
           // Удалили width={276}, добавили автоматическое заполнение:
           w="100%"
           fit="cover"
@@ -47,10 +49,15 @@ function CatalogCard
       </Card.Section>
 
       {/* Убрали miw={270}. Добавили justify="space-between" для авто-распределения */}
-      <Group justify="space-between" h={30} mb={16}>
-        <Text size="sm" c="dimmed">
-          {name}
-        </Text>
+      <Group justify="space-between" align="center" mb={24} wrap="wrap" gap="xs" >
+        <Group gap={6} style={{ flexGrow: 1, minWidth: 0 }}>
+          <Text size="sm" c="dimmed">
+            <strong style={{ color: '#212529', fontSize: '16px' }}>{firstPart}</strong>
+          </Text>
+          <Text size="sm" c="dimmed" ml={12} >
+            {secondPart}
+          </Text>
+        </Group>
         {/* Убрали ml={100}, теперь блок аккуратно встанет справа */}
         <Group gap={0}>
           <StepperDemo onDecrement={() => {
@@ -64,19 +71,24 @@ function CatalogCard
               console.log("Кликнули минус, текущий count:", count)
               setCount(count + 1)
             }}
-           quantity={count} />
+            quantity={count} />
         </Group>
       </Group>
 
       {/* Для нижней строки тоже полезно сделать space-between, чтобы кнопка и цена разъехались по краям */}
-      <Group justify="space-between">
-        <p>{`$ + ${price}`}</p>
-        <ButtonCart onClick={() => addToCart(item,count)}
+      <Group justify="space-between" w='100%' wrap="nowrap" mt='auto'>
+        <Text c="dimmed">
+          <strong style={{ color: '#212529', fontSize: '20px' }}>{`$  ${price}`}</strong>
+        </Text>
+        <ButtonCart onClick={() => addToCart(item, count)}
           bg='#D6F0DC'
           imageAlt='add to cart'
           imageSrc='/cartGreen.svg'
+          mr={16}
+          ml={0}
+
         >
-          Add to cart
+          <Text style={{ color: '#3B944E', fontSize: '16px' }}>Add to cart</Text>
         </ButtonCart>
       </Group>
     </Card>

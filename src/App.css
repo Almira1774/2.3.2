@@ -1,0 +1,29 @@
+ 
+ 
+ html {
+      width: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font: 1em sans-serif;
+  color: black;
+  background-color: #F3F5FA !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* растянет приложение на всю высоту экрана */
+}

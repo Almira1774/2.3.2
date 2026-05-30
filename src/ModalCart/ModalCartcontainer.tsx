@@ -4,7 +4,7 @@ const ModalCartContainer = () => {
     const{cartIsClicked}=useCart()
     return (
         cartIsClicked?
-        <ModalCart></ModalCart>
+        <ModalCart ></ModalCart>
         : ""
 
     )

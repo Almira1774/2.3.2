@@ -11,6 +11,8 @@ import { MantineProvider } from '@mantine/core';
 import { CartContent } from './Catalog/CartContent';
 import CartContextProvider from './CartContextProvider';
 import { ModalCartContainer } from './ModalCart/ModalCartcontainer';
+import { H2 } from './assets/h2/H2';
+
 
 export default function App() {
 
@@ -20,6 +22,7 @@ export default function App() {
       <CartContextProvider>
         <Header />
         <main >
+            <H2></H2>
           <CartContent></CartContent>
         </main>
         <ModalCartContainer/>

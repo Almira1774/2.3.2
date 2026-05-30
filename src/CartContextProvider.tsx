@@ -75,7 +75,7 @@ const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     return (
 
-        <CartContext.Provider value={{ cartItems,isEmpty,cartIsClicked, addToCart, onIncrement, onDecrement, toggleShowModal }}>
+        <CartContext.Provider  value={{ cartItems,isEmpty,cartIsClicked, addToCart, onIncrement, onDecrement, toggleShowModal }}>
             {children}
         </CartContext.Provider>
 

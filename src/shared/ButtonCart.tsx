@@ -1,4 +1,4 @@
-import { Button } from '@mantine/core';
+import { Button, Flex, type ButtonProps } from '@mantine/core';
 import { ImageIcon, DownloadSimpleIcon, ArrowRightIcon } from '@phosphor-icons/react';
 
 export type CardProps = {
@@ -7,20 +7,23 @@ export type CardProps = {
     imageAlt: string;
     children: React.ReactNode;
     bg:string;
-    onClick:()=>void
+    onClick:()=>void;
+} & ButtonProps;
 
-}
 
-function ButtonCart({ imageSrc, imageAlt,children,bg,onClick }: CardProps) {
+function ButtonCart({ imageSrc, imageAlt,children,bg,onClick,...rest }: CardProps) {
     return (
 
         <Button
+        display={Flex}
+        
             variant="filled" w={144} h={44}
             ml="auto"
             color={bg} radius="xs"
             rightSection={<img src={imageSrc} alt={imageAlt} 
             style={{ width: "20px", height: "20px" }}/>}
-            onClick={onClick}
+            onClick={onClick}            
+            {...rest}
     
             >{children}</Button>
 

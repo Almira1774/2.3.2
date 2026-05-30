@@ -30,14 +30,14 @@ function CartContent() {
         <Grid gap="md"
             rowGap="xl"
             columnGap="sm"
-            mt={149}
+            mt={49}
             maw={1280}
             w="100%"
             mx="auto"
             px="md">
             {products.map((product) => {
                 return (
-                    <Grid.Col span={3} key={product.id}>
+                    <Grid.Col  span={{ base: 6, sm: 4, md: 3 }} key={product.id}>
                         <CatalogCard item={product}></CatalogCard>
                     </Grid.Col>
 

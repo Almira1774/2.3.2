@@ -1,21 +1,30 @@
-import { Box, Stack, Group, Text } from '@mantine/core';
+import { Box, Stack, Group, Text, getShadow, Flex, Image } from '@mantine/core';
 import { CartItem } from './ItemCart/CartItem';
 import { useCart } from '../CartContext';
-
+import '@mantine/core/styles.css';
 
 
 
 function ModalCart() {
     const { cartItems, isEmpty } = useCart();
     return (
-        !isEmpty ?
-            <Stack 
+        cartItems.length > 0 ?
+            <Stack
+                style={{
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0 36px 28px -7px, rgba(0, 0, 0, 0.04) 0 17px 17px -7px',
+                    zIndex: "200",
+
+                    overflowY: "auto"
+                }}
+                bdrs={16}
                 w={444}
-                mih={100} // Из вашего CSS взяли последнее значение height: 100px
-                bg="aqua"
-                pos="sticky"
-                left={600}
-                style={{ zIndex: 200 }}
+                mih={100}
+                mah={400}
+                p={24}
+                bg="white"
+                pos="fixed"
+                right={20}
+                top={71}
                 gap={0}
             // сбрасываем стандартные отступы Stack между элементами
             >
@@ -40,16 +49,30 @@ function ModalCart() {
                 </Group>
             </Stack >
             :
-            <Stack    w={301}
-               h={227} // Из вашего CSS взяли последнее значение height: 100px
+            <Stack
+               style={{ 
+        zIndex: 200,
+        // Добавим такую же красивую тень, как и у заполненной модалки
+        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0 36px 28px -7px, rgba(0, 0, 0, 0.04) 0 17px 17px -7px'
+    }}
+                w={301}
+                h={227} // Из вашего CSS взяли последнее значение height: 100px
+                bg="white"
+                bdrs={16}
+                p={24}
+                pos="fixed"
+                 right={20}  
+                top={71}
+                gap={0}
+                justify="center"
+                align="center">
+               
                 
-                pos="sticky"
-                left={600}
-                style={{ zIndex: 200 }}
-                gap={0}>
-                
-                <img src='/cart_empty.svg' width={118} height={107}></img>
-                <Text>Cart is Empty</Text>
+
+                <Image src='/cart_empty.svg'
+                 w={118} h={107} 
+                 ></Image>
+                <Text style={{ textAlign: "center" }}>Cart is Empty</Text>
             </Stack>
 
     );
