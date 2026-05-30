@@ -1,24 +1,23 @@
 import { Button } from "@mantine/core";
 import { BadgeDemo } from "./BadgeDemo";
-import { useState } from "react";
 
-export type StepperProps={
-    onIncrement:()=>void;
-    onDecrement:()=>void;
+export type StepperProps = {
+    onIncrement: () => void;
+    onDecrement: () => void;
     quantity: number;
 
 }
-function StepperDemo({onDecrement,onIncrement,quantity}:StepperProps){
-    
+function StepperDemo({ onDecrement, onIncrement, quantity }: StepperProps) {
 
-    return(
+
+    return (
         <>
             <Button c={"#212529"} w={30} h={30} p={0} bg={"#DEE2E6"} onClick={onDecrement} > -</Button>
-            <BadgeDemo  bg="#FFFFFF" >{quantity}</BadgeDemo>
-            <Button c={"#212529"} w = {30} h={30} p={0} bg={"#DEE2E6"} onClick={onIncrement}> + </Button>
+            <BadgeDemo bg="#FFFFFF" >{quantity}</BadgeDemo>
+            <Button c={"#212529"} w={30} h={30} p={0} bg={"#DEE2E6"} onClick={onIncrement}> + </Button>
         </>
     )
 
 }
 
-export {StepperDemo};
+export { StepperDemo };

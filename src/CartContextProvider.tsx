@@ -4,8 +4,7 @@ import { useState } from 'react';
 const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     const [cartItems, setCartItems] = useState<CartItemType[]>([])
-    const[isEmpty, setIsEmpty]= useState(true)
-    const [cartIsClicked,setCartIsClicked]=useState(false)
+    const [cartIsClicked, setCartIsClicked] = useState(false)
 
     const addToCart = (newItem: Product, count: number) => {
         const isItem = cartItems.find(item => {
@@ -19,28 +18,28 @@ const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
                 return item     //инкремент
             })
             setCartItems(newQuantity)//обновляем массив данных
-            setIsEmpty(false)
+          
             console.log("Добавлен")
         }
         else {
             const newQuantity = { ...newItem, quantity: count }
             setCartItems([...cartItems, newQuantity])
-            setIsEmpty(false)
+           
             console.log("Создан")//если товара нет, добавляем в корзину и обновляем массив
         }
     }
 
     const onIncrement = (id: number) => {
-        if(id){
-        setCartItems(
-            cartItems.map(item => {
-                if (item.id === id) {
-                    return { ...item, quantity: item.quantity + 1 }
-                }
-                return item
-            }))
+        if (id) {
+            setCartItems(
+                cartItems.map(item => {
+                    if (item.id === id) {
+                        return { ...item, quantity: item.quantity + 1 }
+                    }
+                    return item
+                }))
         }
-        else{
+        else {
             console.log('не передан id')
         }
 
@@ -68,14 +67,14 @@ const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     }
 
-    const toggleShowModal=()=>{
-        setCartIsClicked(prev=>!prev)
+    const toggleShowModal = () => {
+        setCartIsClicked(prev => !prev)
 
     }
 
     return (
 
-        <CartContext.Provider  value={{ cartItems,isEmpty,cartIsClicked, addToCart, onIncrement, onDecrement, toggleShowModal }}>
+        <CartContext.Provider value={{ cartItems,  cartIsClicked, addToCart, onIncrement, onDecrement, toggleShowModal }}>
             {children}
         </CartContext.Provider>
 

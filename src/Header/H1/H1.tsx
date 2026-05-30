@@ -1,5 +1,6 @@
+import { Group, Title } from '@mantine/core'
 import { ButtonDemo } from '../../shared/ButtonDemo'
-import styles from './H1.module.scss'
+
 
 type H1Props = {
     children: string
@@ -8,9 +9,12 @@ type H1Props = {
 
 function H1({ children }: H1Props) {
     return (
-    <h1 >{children}
-      <ButtonDemo></ButtonDemo>
-    </h1>
+        <Group bg="#F7F7F7" bd={16} w={209} h={33} pl={12} justify="center" wrap="nowrap">
+            <Title order={1} size={22} c="dark" m={0} lh="100%">
+                {children}
+            </Title>
+            <ButtonDemo />
+        </Group>
     )
 }
 export { H1 }

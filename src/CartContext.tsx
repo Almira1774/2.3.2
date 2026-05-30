@@ -1,5 +1,5 @@
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext} from "react";
 import type { Product } from "./Catalog/CatalogCard/CatalogCard";
 export type CartItemType = {
     id: number;
@@ -13,7 +13,6 @@ export type CartItemType = {
 
 export type CartContextType={
 cartItems:CartItemType[];
-isEmpty:boolean
 cartIsClicked:boolean
 addToCart:(item:Product,count:number)=>void
 onIncrement:(id:number)=>void
