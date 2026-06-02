@@ -24,7 +24,7 @@ function Header() {
       marginBottom: 'auto'
     }}>
       <H1>Vegetable</H1>
-      <ButtonCart
+      <ButtonCart data-testid='headerBadge'
         imageSrc='/cart.svg'
         imageAlt='cart icon'
         bg="#54B46A"
@@ -32,12 +32,13 @@ function Header() {
         right={'20px'}
         top={7.5}
         onClick={toggleShowModal}>
-        {cartItems.length > 0 ? <BadgeDemo bg='#FFFFFF'>
+        {cartItems.length > 0 ? <BadgeDemo 
+        bg='#FFFFFF'>
           {cartItems.reduce((amount, item) =>
             amount + item.quantity, 0
           )}
 
-        </BadgeDemo> : ""}
+        </BadgeDemo > : ""}
         <span style={{ marginLeft: 10 }}>Cart</span>
       </ButtonCart >
     </header>

@@ -1,5 +1,5 @@
 import { Grid } from '@mantine/core';
-import { CatalogCard, type CartItemProps } from './CatalogCard/CatalogCard';
+import { CatalogCard } from './CatalogCard/CatalogCard';
 import ky from 'ky';
 import { useEffect, useState } from 'react';
 import { type Product } from './CatalogCard/CatalogCard'

@@ -17,38 +17,35 @@ export type CartItemProps = {
 }
 
 function CatalogCard
-  ({ item }: CartItemProps) {
+  ({ item }: CartItemProps) { 
   if (!item) {
     console.log("item не передали")
     return null;
   }
-  const { id, name, price, image } = item
-  const { addToCart, cartItems } = useCart()
+  const { name, price, image } = item
+  const { addToCart} = useCart()
   const [count, setCount] = useState(1)
   const [firstPart, secondPart] = name.split(" - ") // Разделяем имя на две части для переноса
 
 
-  const isQuantity = cartItems.find(cart => cart.id === item.id)
-  const quantityValue = isQuantity ? isQuantity.quantity : 0
-
+ 
 
   return (
-    // Убрали все ограничения, карточка теперь идеально слушается сетку Grid
+    
     <Card shadow="sm" withBorder h={'100%'}
       p={'md'}>
       <Card.Section component="a" href="https://mantine.dev/" >
         <Image
           src={image}
-          height={276} // Фиксированная высота для всех изображений
-          // Удалили width={276}, добавили автоматическое заполнение:
+          height={276} 
           w="100%"
           fit="cover"
-          alt="Norway"
+          alt={`ProductCard ${name}`}
           mb={16}
         />
       </Card.Section>
 
-      {/* Убрали miw={270}. Добавили justify="space-between" для авто-распределения */}
+      
       <Group justify="space-between" align="center" mb={24} wrap="wrap" gap="xs" >
         <Group gap={6} style={{ flexGrow: 1, minWidth: 0 }}>
           <Text size="sm" c="dimmed">
@@ -58,7 +55,7 @@ function CatalogCard
             {secondPart}
           </Text>
         </Group>
-        {/* Убрали ml={100}, теперь блок аккуратно встанет справа */}
+       
         <Group gap={0}>
           <StepperDemo onDecrement={() => {
             if (count > 1) {
@@ -68,14 +65,14 @@ function CatalogCard
           }}
 
             onIncrement={() => {
-              console.log("Кликнули минус, текущий count:", count)
+              console.log("Кликнули плюс, текущий count:", count)
               setCount(count + 1)
             }}
             quantity={count} />
         </Group>
       </Group>
 
-      {/* Для нижней строки тоже полезно сделать space-between, чтобы кнопка и цена разъехались по краям */}
+      
       <Group justify="space-between" w='100%' wrap="nowrap" mt='auto'>
         <Text c="dimmed">
           <strong style={{ color: '#212529', fontSize: '20px' }}>{`$  ${price}`}</strong>

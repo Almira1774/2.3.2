@@ -39,7 +39,7 @@ function ModalCart() {
                     )
                 })}
 
-                <Group justify="space-between" w="100%" px="md" mt="auto">
+                <Group  justify="space-between" w="100%" px="md" mt="auto">
                     <Text fw={700}>Total:</Text>
                     <Text fw={700}>{cartItems.reduce((total, item) =>
                         total + item.quantity * item.price, 0
@@ -69,7 +69,7 @@ function ModalCart() {
 
 
                 <Image src='/cart_empty.svg'
-                    w={118} h={107}
+                    w={118} h={107} alt="empty cart"
                 ></Image>
                 <Text style={{ textAlign: "center" }}>Cart is Empty</Text>
             </Stack>

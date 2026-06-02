@@ -15,7 +15,7 @@ function CartItem({ item }: { item: CartItemType }) {
   return (
 
     <Group
-
+data-testid = {firstPart}
       gap="md"
       wrap="nowrap"
       w="100%"
@@ -30,7 +30,7 @@ function CartItem({ item }: { item: CartItemType }) {
       />
 
 
-      <Stack
+      <Stack 
         w={320}
         h={64}
         justify="space-between"
@@ -41,11 +41,11 @@ function CartItem({ item }: { item: CartItemType }) {
 
         <Group justify="space-between" w="100%" wrap="nowrap">
           <Text size="sm" c="dimmed">{`$ ${price}`}</Text>
-          <Group gap={0}>
-            <StepperDemo
+          <Group gap={0} data-testid={`${firstPart}-amount`}>
+            <StepperDemo 
               onDecrement={() => onDecrement(id)}
               onIncrement={() => onIncrement(id)}
-              quantity={quantity} />
+              quantity ={quantity} />
           </Group>
         </Group>
       </Stack>

@@ -6,7 +6,7 @@ type BadgeProps={
 }
 function BadgeDemo({bg,children}:BadgeProps) {
   return <Badge bg={bg}
-  size="lg" circle  c="dark"
+  size="lg" circle  c="dark" 
   >{children}</Badge>;
 }
 
