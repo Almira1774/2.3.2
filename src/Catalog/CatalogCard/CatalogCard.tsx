@@ -79,13 +79,13 @@ function CatalogCard
         </Text>
         <ButtonCart onClick={() => addToCart(item, count)}
           bg='#D6F0DC'
-          imageAlt='add to cart'
-          imageSrc='/cartGreen.svg'
+          c={'#3B944E'}
+          iconColor='#3B944E'
           mr={16}
           ml={0}
 
         >
-          <Text style={{ color: '#3B944E', fontSize: '16px' }}>Add to cart</Text>
+          <Text fs={'16px'}>Add to cart</Text>
         </ButtonCart>
       </Group>
     </Card>

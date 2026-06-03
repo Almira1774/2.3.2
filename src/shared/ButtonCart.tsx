@@ -1,27 +1,27 @@
 import { Button, Flex, type ButtonProps } from '@mantine/core';
+import { Logo} from './Logo';
 
 export type CardProps = {
-
-    imageSrc: string;
-    imageAlt: string;
+    color?: string;
+    iconColor?: string;
     children: React.ReactNode;
     bg: string;
     onClick: () => void;
+
 } & ButtonProps;
 
 
-function ButtonCart({ imageSrc, imageAlt, children, bg, onClick, ...rest }: CardProps) {
+function ButtonCart({ children, bg, onClick, color, ...rest }: CardProps) {
     return (
 
         <Button
             display={Flex}
-
             variant="filled" w={144} h={44}
             ml="auto"
-            color={bg} radius="xs"
-            rightSection={<img src={imageSrc} alt={imageAlt}
-                style={{ width: "20px", height: "20px" }} />}
+            bg={bg} radius="xs"
+            rightSection={<Logo />}
             onClick={onClick}
+            c={color}
             {...rest}
 
         >{children}</Button>

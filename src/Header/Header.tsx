@@ -25,8 +25,7 @@ function Header() {
     }}>
       <H1>Vegetable</H1>
       <ButtonCart data-testid='headerBadge'
-        imageSrc='/cart.svg'
-        imageAlt='cart icon'
+        
         bg="#54B46A"
         pos={'fixed'}
         right={'20px'}

@@ -71,7 +71,9 @@ function ModalCart() {
                 <Image src='/cart_empty.svg'
                     w={118} h={107} alt="empty cart"
                 ></Image>
-                <Text style={{ textAlign: "center" }}>Cart is Empty</Text>
+                <Text 
+                ta={'center'}
+                >Cart is Empty</Text>
             </Stack>
 
     );
