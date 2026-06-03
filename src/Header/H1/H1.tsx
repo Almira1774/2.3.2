@@ -1,5 +1,5 @@
 import { Group, Title } from '@mantine/core'
-import { ButtonDemo } from '../../shared/ButtonDemo'
+import { ButtonDemo } from './ButtonDemo'
 
 
 type H1Props = {

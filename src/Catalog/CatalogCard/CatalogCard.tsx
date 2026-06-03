@@ -75,7 +75,8 @@ function CatalogCard
       
       <Group justify="space-between" w='100%' wrap="nowrap" mt='auto'>
         <Text c="dimmed">
-          <strong style={{ color: '#212529', fontSize: '20px' }}>{`$  ${price}`}</strong>
+          <strong 
+          style={{ color: '#212529', fontSize: '20px' }}>{`$  ${price}`}</strong>
         </Text>
         <ButtonCart onClick={() => addToCart(item, count)}
           bg='#D6F0DC'

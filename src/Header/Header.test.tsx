@@ -1,9 +1,7 @@
 import '@testing-library/jest-dom';
 import { screen } from "@testing-library/react";
-import { CatalogCard, type Product } from "../Catalog/CatalogCard/CatalogCard";
 import { renderWithContext } from "../test/utils";
 import { expect, it, describe, beforeEach } from "vitest";
-import userEvent from '@testing-library/user-event';
 import { Header } from './Header';
 import { ModalCart } from '../ModalCart/ModalCart';
 import type { CartItemType } from '../CartContext';
